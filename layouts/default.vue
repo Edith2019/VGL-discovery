@@ -1,7 +1,9 @@
 <template>
     <div>
         <Header :items="items" />
-        <slot />
+        <div class="default-layout">
+            <slot />
+        </div>
     </div>
 </template>
 
@@ -13,5 +15,8 @@ const items = [{ name: "search", url: "search" }];
 <style>
 body {
     margin: 0px;
+}
+.default-layout {
+    margin: 10px;
 }
 </style>
