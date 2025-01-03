@@ -33,13 +33,6 @@ const ReadMore = defineAsyncComponent(() => import("../UI/atoms/ReadMore.vue"));
 
 const indexName = "movie";
 const algolia = useAlgoliaRef();
-
-const showFullText = ref(false);
-const truncatedText = computed(() =>
-    props.fullText.length > props.maxCharacters
-        ? props.fullText.slice(0, props.maxCharacters) + "..."
-        : props.fullText
-);
 </script>
 
 <style scoped>
