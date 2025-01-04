@@ -24,7 +24,6 @@ const InstantSearchProvider = defineAsyncComponent(
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    color: black;
 }
 
 .item {

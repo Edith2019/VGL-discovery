@@ -1,6 +1,6 @@
 <template>
     <div>
-        <NuxtLink :href="'/movie/jurassic'" style="display: block" class="link"
+        <NuxtLink :href="'/instant_search/Samsung'" style="display: block"
             >Go To instant search samsung</NuxtLink
         >
         <NuxtLink :href="'/instant_search/Metra'" style="display: block"
@@ -10,13 +10,15 @@
         <NuxtLink :href="'/airbnb/test'" style="display: block"
             >Go To airbnb</NuxtLink
         >
-        <InstantSearchProvider />
+        <InstantSearchProvider :indexName="$route.params.indexName" />
     </div>
 </template>
 <script setup lang="ts">
 const InstantSearchProvider = defineAsyncComponent(
     () => import("../components/organisms/InstantSearchProvider.vue")
 );
+const { $router } = useNuxtApp();
+console.log("$router", $router);
 </script>
 
 <style>
@@ -32,9 +34,5 @@ const InstantSearchProvider = defineAsyncComponent(
     flex-direction: column;
     width: 33.333%;
     flex: 0 0 33.333%;
-}
-
-.link {
-    color: black;
 }
 </style>

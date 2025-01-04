@@ -8,7 +8,9 @@
 </template>
 
 <script lang="ts" setup>
-const Header = defineAsyncComponent(() => import("./UI/molecules/Header.vue"));
+const Header = defineAsyncComponent(
+    () => import("./components/molecules/Header.vue")
+);
 const items = [
     { name: "home", url: "/" },
     { name: "search client", url: "/search" },

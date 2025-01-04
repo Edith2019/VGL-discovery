@@ -17,7 +17,6 @@ const props = defineProps({
 
 const { $router } = useNuxtApp();
 
-console.log($router);
 const path = computed(() => $router.currentRoute.value.path);
 </script>
 

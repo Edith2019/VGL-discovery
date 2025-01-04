@@ -29,7 +29,9 @@ import {
     AisSearchBox,
     AisHits,
 } from "vue-instantsearch/vue3/es";
-const ReadMore = defineAsyncComponent(() => import("../UI/atoms/ReadMore.vue"));
+const ReadMore = defineAsyncComponent(
+    () => import("../components/atoms/ReadMore.vue")
+);
 
 const indexName = "movie";
 const algolia = useAlgoliaRef();
