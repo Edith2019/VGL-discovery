@@ -1,14 +1,14 @@
 <template>
     <div>
-        <NuxtLink :href="'/movie/jurassic'" style="display: block" class="link"
-            >Go To instant search samsung</NuxtLink
+        <NuxtLink :href="'/movie/jurassic'" style="display: block"
+            >Go To instant search Jurassic</NuxtLink
         >
-        <NuxtLink :href="'/instant_search/Metra'" style="display: block"
-            >Go To instant search metra</NuxtLink
+        <NuxtLink :href="'/movie/witch'" style="display: block"
+            >Go To instant search witch</NuxtLink
         >
 
-        <NuxtLink :href="'/airbnb/test'" style="display: block"
-            >Go To airbnb</NuxtLink
+        <NuxtLink :href="'/movie/natural%20disaster'" style="display: block"
+            >Go To instant search natural disaster</NuxtLink
         >
         <InstantSearchProvider />
     </div>
@@ -19,21 +19,8 @@ const InstantSearchProvider = defineAsyncComponent(
 );
 </script>
 
-<style>
-.cont {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-.item {
-    display: flex;
-    flex-direction: column;
-    width: 33.333%;
-    flex: 0 0 33.333%;
-}
-
-.link {
+<style scoped>
+a {
     color: black;
 }
 </style>

@@ -1,25 +1,15 @@
 <template>
     <div>
-        <ais-instant-search :index-name="indexName" :search-client="algolia">
-            <ais-search-box />
-            <ais-hits class="hit-items">
+        <AisInstantSearch :index-name="indexName" :search-client="algolia">
+            <AisSearchBox />
+            <AisHits class="hit-items">
                 <template #default="{ items }">
-                    <div
-                        v-for="item in items"
-                        :key="item.objectID"
-                        class="hit-item"
-                    >
-                        <h2>{{ item.title }}</h2>
-                        <ReadMore :full-text="item.overview" />
-                        <NuxtImg
-                            :src="item.poster_path"
-                            :alt="item.title"
-                            sizes="100vw sm:50vw md:400px"
-                        />
+                    <div v-for="item in items" :key="item.objectID">
+                        <Tile :item="item" />
                     </div>
                 </template>
-            </ais-hits>
-        </ais-instant-search>
+            </AisHits>
+        </AisInstantSearch>
     </div>
 </template>
 
@@ -29,8 +19,9 @@ import {
     AisSearchBox,
     AisHits,
 } from "vue-instantsearch/vue3/es";
-const ReadMore = defineAsyncComponent(
-    () => import("../components/atoms/ReadMore.vue")
+
+const Tile = defineAsyncComponent(
+    () => import("../components/molecules/Tile.vue")
 );
 
 const indexName = "movie";
@@ -43,18 +34,6 @@ const algolia = useAlgoliaRef();
     display: grid;
     grid-template-columns: repeat(3, 3fr);
     column-gap: 20px;
-    width: 100%;
-}
-
-.hit-item {
-    margin-bottom: 16px;
-    border: 1px solid #ddd;
-    padding: 16px;
-    border-radius: 8px;
-}
-
-img {
-    text-align: center;
     width: 100%;
 }
 </style>

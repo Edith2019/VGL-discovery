@@ -4,26 +4,24 @@
             <AisConfigure
                 :hits-per-page.camel="4"
                 v-if="$route.params.indexName === 'movie'"
-                :facet-filters.camel="`keywords:${$router.currentRoute.value.params.brand} `"
+                :facet-filters.camel="`keywords:${$router.currentRoute.value.params.brand}`"
             />
 
-            <!-- <AisRefinementList attribute="keywords"> </AisRefinementList> -->
+            <AisRefinementList attribute="keywords"> </AisRefinementList>
             <AisInfiniteHits show-previous>
                 <template #loadPrevious="{ isFirstPage, refinePrevious }">
-                    <button :disabled="isFirstPage" @click="refinePrevious">
+                    <button
+                        v-if="!isFirstPage"
+                        :disabled="isFirstPage"
+                        @click="refinePrevious"
+                    >
                         Load less
                     </button>
                 </template>
                 <template v-slot="{ items, refineNext, isLastPage }">
-                    <div class="cont">
-                        <div
-                            v-for="item in items"
-                            :key="item.objectID"
-                            class="item"
-                        >
-                            {{ item.name }}
-                            <img :src="item.image ?? item.thumbnail_url" />
-                            {{ item }}
+                    <div class="hit-items">
+                        <div v-for="item in items" :key="item.objectID">
+                            <Tile :item="item" />
                         </div>
                     </div>
                     <button :disabled="isLastPage" @click="refineNext">
@@ -46,13 +44,13 @@ import {
     AisConfigure,
     // @ts-ignore
 } from "vue-instantsearch/vue3/es/index.js";
-
+const Tile = defineAsyncComponent(
+    () => import("../components/molecules/Tile.vue")
+);
 const $_ais_ssrInstantSearchInstance = inject([
     "$_ais_ssrInstantSearchInstance",
 ]);
-const nuxtApp = useNuxtApp();
 const { ssrContext, payload, $router } = useNuxtApp();
-console.log("$router", $router);
 
 const props = defineProps({
     indexName: {
@@ -69,9 +67,9 @@ onServerPrefetch(async () => {
         renderToString,
     });
     console.log("respSSS", s);
-    // if (ssrContext.payload.data) {
-    //     ssrContext.payload.data.algoliaState = s;
-    // }
+    if (ssrContext?.payload.data) {
+        ssrContext.payload.data.algoliaState = s;
+    }
 });
 
 onMounted(() => {
@@ -97,3 +95,13 @@ onBeforeMount(async () => {
     delete payload.data.algoliaState;
 });
 </script>
+
+<style scoped>
+.hit-items {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 3fr);
+    column-gap: 20px;
+    width: 100%;
+}
+</style>

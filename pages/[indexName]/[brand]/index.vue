@@ -1,14 +1,13 @@
 <template>
     <div>
-        <NuxtLink :href="'/instant_search/Samsung'" style="display: block"
-            >Go To instant search samsung</NuxtLink
+        <NuxtLink :href="'/movie/jurassic'" style="display: block"
+            >Go To instant search Jurassic</NuxtLink
         >
-        <NuxtLink :href="'/instant_search/Metra'" style="display: block"
-            >Go To instant search metra</NuxtLink
+        <NuxtLink :href="'/movie/witch'" style="display: block"
+            >Go To instant search witch</NuxtLink
         >
-
-        <NuxtLink :href="'/airbnb/test'" style="display: block"
-            >Go To airbnb</NuxtLink
+        <NuxtLink :href="'/movie/natural%20disaster'" style="display: block"
+            >Go To instant search natural disaster</NuxtLink
         >
         <InstantSearchProvider :indexName="$route.params.indexName" />
     </div>
@@ -21,18 +20,8 @@ const { $router } = useNuxtApp();
 console.log("$router", $router);
 </script>
 
-<style>
-.cont {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+<style scoped>
+a {
     color: black;
-}
-
-.item {
-    display: flex;
-    flex-direction: column;
-    width: 33.333%;
-    flex: 0 0 33.333%;
 }
 </style>
