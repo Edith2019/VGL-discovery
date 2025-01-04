@@ -25,13 +25,13 @@ const props = defineProps({
 const showFullText = ref(false);
 
 const truncatedText = computed(() =>
-    props.fullText.length > props.maxCharacters
+    props.fullText?.length > props.maxCharacters
         ? props.fullText.slice(0, props.maxCharacters) + "..."
         : props.fullText
 );
 
 const isTruncated = computed(
-    () => props.fullText.length > props.maxCharacters && !showFullText.value
+    () => props.fullText?.length > props.maxCharacters && !showFullText.value
 );
 
 const toggleText = () => {

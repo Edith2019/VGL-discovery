@@ -1,7 +1,9 @@
 <template>
     <div class="container">
         <div v-for="item in items" :key="item.name">
-            <NuxtLink :to="item.url"> {{ item.name }} </NuxtLink>
+            <NuxtLink :to="item.url" :class="{ selected: path === item.url }">
+                {{ item.name }}
+            </NuxtLink>
         </div>
     </div>
 </template>
@@ -12,6 +14,10 @@ const props = defineProps({
         type: Object,
     },
 });
+
+const { $router } = useNuxtApp();
+
+const path = computed(() => $router.currentRoute.value.path);
 </script>
 
 <style>
@@ -24,5 +30,11 @@ const props = defineProps({
 
 a {
     color: white;
+    margin-right: 15px;
+    text-decoration: none;
+}
+
+.selected {
+    color: #0096d5;
 }
 </style>

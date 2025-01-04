@@ -5,7 +5,13 @@
 </template>
 
 <script lang="ts" setup>
-definePageMeta({
-    layout: "default",
-});
+const nuxtApp = useNuxtApp();
+console.log(useNuxtApp());
+// definePageMeta({
+//     layout: "default",
+// });
+// to do
+// add pagination
+// add no search found
+// add tests
 </script>
