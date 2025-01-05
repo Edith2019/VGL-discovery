@@ -28,7 +28,9 @@ export default defineConfig({
     expect: { timeout: 30000 },
     use: {
         /* Base URL to use in actions like `await page.goto('/')`. */
-        baseURL: "http://localhost:3000/",
+        baseURL: process.env.CI
+            ? "https://vgl-discovery.vercel.app/"
+            : "http://localhost:3000/",
         // http://localhost:3000/search
 
         /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
