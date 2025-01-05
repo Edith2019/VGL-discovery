@@ -20,5 +20,10 @@
     "vue": "latest",
     "vue-instantsearch": "^4.19.12",
     "vue-router": "latest"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.1",
+    "@types/node": "^22.10.5",
+    "playwright-core": "^1.49.1"
   }
 }
