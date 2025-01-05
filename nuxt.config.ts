@@ -4,7 +4,7 @@ export default defineNuxtConfig({
     compatibilityDate: "2024-11-01",
     ssr: true,
     devtools: { enabled: true },
-    modules: ["@nuxtjs/algolia", "@nuxt/image"],
+    modules: ["@nuxtjs/algolia", "@nuxt/image", "@nuxt/test-utils/module"],
     experimental: {
         componentIslands: true,
         asyncContext: true,
