@@ -6,12 +6,12 @@ export default defineVitestConfig({
     // any custom Vitest config you require
     // plugins: [Vue(), AutoImport({ imports: ["vue"] })],
     test: {
-        coverage: {
-            all: true,
-            enabled: false,
-            include: ["**/*.ts", "**/*.vue", "**/*.js"],
-            exclude: ["*.config.ts", ".nuxt/**", ".output/**", "plugins/**"],
-        },
+        // coverage: {
+        //     all: true,
+        //     enabled: false,
+        //     include: ["**/*.ts", "**/*.vue", "**/*.js"],
+        //     exclude: ["*.config.ts", ".nuxt/**", ".output/**", "plugins/**"],
+        // },
         globals: true,
         environment: "happy-dom",
         setupFiles: ["./vitest.setup.ts"],
@@ -24,9 +24,6 @@ export default defineVitestConfig({
                 __dirname,
                 "./.nuxt/vue-router-stub.d.ts"
             ),
-
-            // "#imports": path.resolve(__dirname, "./.nuxt/imports.d.ts"),
         },
     },
-    // define: process.env.VITEST ? {} : { global: "window" },
 });

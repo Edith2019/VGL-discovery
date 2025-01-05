@@ -22,7 +22,7 @@ describe("Header", () => {
                 mocks: {
                     useNuxtApp: () => ({
                         $router: {
-                            currentRoute: { value: { path: "/" } }, // Mock current route
+                            currentRoute: { value: { path: "/" } },
                         },
                     }),
                 },
