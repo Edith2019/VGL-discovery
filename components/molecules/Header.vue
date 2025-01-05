@@ -10,9 +10,10 @@
 
 <script lang="ts" setup>
 import type { HeaderItem } from "../../resources/types";
+import { useNuxtApp } from "#app";
 
 interface HeaderProps {
-    items: HeaderItem[];
+    items?: HeaderItem[];
 }
 
 const props = defineProps<HeaderProps>();
