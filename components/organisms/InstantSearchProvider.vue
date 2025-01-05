@@ -57,30 +57,29 @@ const Button = defineAsyncComponent(
 const $_ais_ssrInstantSearchInstance = inject([
     "$_ais_ssrInstantSearchInstance",
 ]);
-const { ssrContext, payload, $router } = useNuxtApp();
 
-const props = defineProps({
-    indexName: {
-        type: String,
-        required: false,
-        default: null,
-    },
+interface InstantSearchProps {
+    indexName?: string;
+}
+
+const props = withDefaults(defineProps<InstantSearchProps>(), {
+    indexName: null,
 });
 
+const { ssrContext, payload, $router } = useNuxtApp();
+
 onServerPrefetch(async () => {
-    console.log("renderToString", renderToString);
     const s = await $_ais_ssrInstantSearchInstance.findResultsState({
         component: this,
         renderToString,
     });
-    console.log("respSSS", s);
     if (ssrContext?.payload.data) {
         ssrContext.payload.data.algoliaState = s;
     }
 });
 
 onMounted(() => {
-    console.log($_ais_ssrInstantSearchInstance);
+    // console.log($_ais_ssrInstantSearchInstance);
     setTimeout(() => {}, 5000);
 });
 onBeforeMount(async () => {

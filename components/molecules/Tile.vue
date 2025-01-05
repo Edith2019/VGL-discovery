@@ -11,15 +11,17 @@
 </template>
 
 <script lang="ts" setup>
+import type { searchItem } from "../../resources/types";
+
 const ReadMore = defineAsyncComponent(
     () => import("../components/atoms/ReadMore.vue")
 );
 
-const props = defineProps({
-    item: {
-        type: Object,
-    },
-});
+interface TileProps {
+    item?: searchItem;
+}
+
+const props = defineProps<TileProps>();
 </script>
 
 <style scoped>

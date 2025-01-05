@@ -9,11 +9,13 @@
 </template>
 
 <script lang="ts" setup>
-const props = defineProps({
-    items: {
-        type: Object,
-    },
-});
+import type { HeaderItem } from "../../resources/types";
+
+interface HeaderProps {
+    items: HeaderItem[];
+}
+
+const props = defineProps<HeaderProps>();
 
 const { $router } = useNuxtApp();
 
