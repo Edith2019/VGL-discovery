@@ -10,13 +10,13 @@
             <AisRefinementList attribute="keywords"> </AisRefinementList>
             <AisInfiniteHits show-previous>
                 <template #loadPrevious="{ isFirstPage, refinePrevious }">
-                    <button
+                    <Button
                         v-if="!isFirstPage"
                         :disabled="isFirstPage"
                         @click="refinePrevious"
+                        text="Load less"
                     >
-                        Load less
-                    </button>
+                    </Button>
                 </template>
                 <template v-slot="{ items, refineNext, isLastPage }">
                     <div class="hit-items">
@@ -24,9 +24,12 @@
                             <Tile :item="item" />
                         </div>
                     </div>
-                    <button :disabled="isLastPage" @click="refineNext">
-                        Load more
-                    </button>
+                    <Button
+                        :disabled="isLastPage"
+                        @click="refineNext"
+                        text="Load more"
+                    >
+                    </Button>
                 </template>
             </AisInfiniteHits>
         </AisInstantSearchSsr>
@@ -47,6 +50,10 @@ import {
 const Tile = defineAsyncComponent(
     () => import("../components/molecules/Tile.vue")
 );
+const Button = defineAsyncComponent(
+    () => import("../components/molecules/Button.vue")
+);
+
 const $_ais_ssrInstantSearchInstance = inject([
     "$_ais_ssrInstantSearchInstance",
 ]);

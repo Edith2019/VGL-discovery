@@ -20,7 +20,7 @@ const { $router } = useNuxtApp();
 const path = computed(() => $router.currentRoute.value.path);
 </script>
 
-<style>
+<style scoped>
 .container {
     display: flex;
     background-color: #333;
