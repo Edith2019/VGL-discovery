@@ -12,16 +12,15 @@
 <script lang="ts" setup>
 import { defineComponent, ref, computed } from "vue";
 
-const props = defineProps({
-    fullText: {
-        type: String,
-        required: true,
-    },
-    maxCharacters: {
-        type: Number,
-        default: 100,
-    },
+interface ReadMoreProps {
+    fullText?: string;
+    maxCharacters?: number;
+}
+
+const props = withDefaults(defineProps<ReadMoreProps>(), {
+    maxCharacters: 100,
 });
+
 const showFullText = ref(false);
 
 const truncatedText = computed(() =>
