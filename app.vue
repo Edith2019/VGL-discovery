@@ -12,6 +12,8 @@ console.log(useNuxtApp());
 // });
 // to do
 // add pagination
-// add no search found
 // add tests
+// add types
+// add intro
+// responsiveness
 </script>
