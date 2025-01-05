@@ -12,7 +12,7 @@ test.describe("search client e2e", async () => {
 
     test.afterAll(async () => {
         await SSRSearchContext.close();
-        await page.clos();
+        await page.close();
     });
 
     test("has client search page elements", async () => {
