@@ -32,8 +32,29 @@ const algolia = useAlgoliaRef();
 .hit-items {
     margin-top: 20px;
     display: grid;
-    grid-template-columns: repeat(3, 3fr);
-    column-gap: 20px;
+    grid-template-columns: 1fr;
+    gap: 20px;
     width: 100%;
+}
+
+/* Tablet view */
+@media (min-width: 768px) {
+    .hit-items {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktop view */
+@media (min-width: 1024px) {
+    .hit-items {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Big screen view */
+@media (min-width: 1440px) {
+    .hit-items {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 </style>
