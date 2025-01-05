@@ -33,9 +33,7 @@
     </div>
 </template>
 
-<script lang="ts" setup>
-console.log("index");
-</script>
+<script lang="ts" setup></script>
 
 <style scoped>
 a {

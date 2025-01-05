@@ -1,6 +1,14 @@
 # Nuxt Minimal Starter
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Look at the [VGL-discovery](https://vgl-discovery.vercel.app/) to learn more.
+
+This repo aims to display skill set of:
+
+-   using nuxt 3 with typeScript
+-   implementing Algolia search client and SSR
+-   implementing unit and e2e testing
+-   adding e2e in github actions
+-   deploying on Vercel
 
 ## Setup
 

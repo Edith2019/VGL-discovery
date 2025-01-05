@@ -17,7 +17,6 @@ const InstantSearchProvider = defineAsyncComponent(
     () => import("../components/organisms/InstantSearchProvider.vue")
 );
 const { $router } = useNuxtApp();
-console.log("$router", $router);
 </script>
 
 <style scoped>

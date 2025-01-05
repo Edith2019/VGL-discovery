@@ -3,17 +3,13 @@ import VueInstantSearch, {
     createServerRootMixin,
     // @ts-ignore
 } from "vue-instantsearch/vue3/es";
-// import algoliasearch from "algoliasearch/lite";
-// import * as algoliasearch from "algoliasearch";
 
 import { liteClient } from "algoliasearch/lite";
 
 import type { LocationQueryRaw } from "vue-router";
 
 export default defineNuxtPlugin(({ vueApp }) => {
-    // console.log("useRuntimeConfig()", useRuntimeConfig());
     const { apiKey, applicationId } = useRuntimeConfig().public.algolia;
-    // console.log(apiKey, applicationId);
     const searchClient = liteClient(applicationId, apiKey);
     const router = useRouter();
     const route = useRoute();

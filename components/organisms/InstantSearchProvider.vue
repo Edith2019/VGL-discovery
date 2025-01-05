@@ -86,7 +86,6 @@ onBeforeMount(async () => {
     if (payload.data.algoliaState) {
         $_ais_ssrInstantSearchInstance.hydrate(payload.data.algoliaState);
     } else {
-        console.log("this", this);
         // somehow, it needs to be disposed and refreshed when i change route with client side navigation
         $_ais_ssrInstantSearchInstance.dispose();
         nextTick(() => {
